@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
+import { Td } from './TransactionHistory.styled';
 
 export const Transaction = ({
   transaction: { id, type, amount, currency },
 }) => {
   return (
     <>
-      <td>{type}</td>
-      <td>{amount}</td>
-      <td>{currency}</td>
+      <Td>{type}</Td>
+      <Td>{amount}</Td>
+      <Td>{currency}</Td>
     </>
   );
 };
 
 Transaction.propTypes = {
-  type: PropTypes.string,
-  amount: PropTypes.string,
-  currency: PropTypes.string,
+  transaction: PropTypes.shape({
+    type: PropTypes.string,
+    amount: PropTypes.string,
+    currency: PropTypes.string,
+  }).isRequired,
 };
